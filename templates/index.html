@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>GitHub Code Analyzer</h1>
+    <form action="/analyze" method="POST">
+        <label for="repo_link">GitHub Repo Link:</label>
+        <input type="text" id="repo_link" name="repo_link" placeholder="Paste GitHub link here" required>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if report %}
+    <h2>Analysis Report</h2>
+    <pre>{{ report }}</pre>
+    {% endif %}
+</body>
+</html>
